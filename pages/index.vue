@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import CalendarWidget from "~/components/calendar.vue";
+
 let aiOpen = ref(false)
 import PucAi from "~/components/puc-ai.vue";
 
@@ -205,12 +207,10 @@ const getCardColor = (grade: any) => {
         <div class="w-full p-2 ">
           <div class="w-full rounded-2xl bg-white shadow p-4 space-y-2 overflow-hidden h-60">
             <h1 class="text-2xl font-semibold text-gray-700">Timeline</h1>
-            <div class="flex w-full">
+            <div class="flex">
               <!--                    <div class="w-full flex justify-center"><img class="h-full" src="~/assets/academic-calendar.png" alt="calendar"></div>-->
-              <ImageModal
-                  imageLink="https://imgur.com/z16RTjf.png">
-              </ImageModal>
-              <div class=" w-full ">
+              <CalendarWidget></CalendarWidget>
+              <div class="">
                 <h1 class="text-xl">Upcoming:</h1>
                 <div class="ml-4 mt-2 gap-2 flex flex-col overflow-y-auto h-32 " style="scrollbar-width: thin;">
                   <div v-for="event in upcomingEvents" :key="event.Date" class="text-sm bg-blue-300 rounded p-1">
@@ -221,6 +221,7 @@ const getCardColor = (grade: any) => {
                 </div>
               </div>
             </div>
+
 
           </div>
 
