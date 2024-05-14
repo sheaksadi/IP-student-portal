@@ -323,7 +323,7 @@ const getCardColor = (grade: any) => {
 
             <h1 class="mb-3 text-lg" >{{ event.title }}</h1>
           </div>
-          <p class="mb-3 text-sm">{{ event.content }}</p>
+          <p class="mb-3 text-sm text-gray-700">{{ event.content }}</p>
         </div>
       </div>
 
