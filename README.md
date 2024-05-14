@@ -8,8 +8,11 @@ Make sure to install the dependencies:
 
 ```bash
 # npm
-npx npm-check-updates -u
 npm install
+
+npx npm-check-updates -u
+
+
 
 ## pnpm
 #pnpm install
