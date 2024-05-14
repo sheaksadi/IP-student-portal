@@ -211,7 +211,7 @@ const getCardColor = (grade: any) => {
             <div class="flex w-full h-full">
               <!--                    <div class="w-full flex justify-center"><img class="h-full" src="~/assets/academic-calendar.png" alt="calendar"></div>-->
               <ImageModal
-                  imageLink="https://cdn.discordapp.com/attachments/1087010612892151899/1239342159161983098/academic-calendar.png?ex=66448d14&is=66433b94&hm=9ae77a9440a2f8104b9af3d15162aea7b581db9e59d46bbc7dcb716a76d8ea54&"></ImageModal>
+                  imageLink="https://imgur.com/z16RTjf.png"></ImageModal>
               <div class=" w-full ">
                 <h1 class="text-xl">Upcoming:</h1>
                 <div class="ml-4 mt-2 gap-2 flex flex-col h-full overflow-y-auto" style="scrollbar-width: thin;">
