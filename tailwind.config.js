@@ -12,9 +12,13 @@ module.exports = {
 	],
   safelist: [
     {
-      pattern: /bg-(.*?)-(300|400)/,
+      pattern: /bg-(.*?)-(300|400|500|600|700)/,
       variants: ["group-hover"],
     },
+    {
+      pattern: /text-(.*?)-(.*?)/,
+      // variants: ["group-hover"],
+    }
   ],
   prefix: "",
   theme: {

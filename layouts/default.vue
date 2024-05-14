@@ -174,13 +174,12 @@ let routes = [
           <div v-for="subRoute in routes.filter((route) => route.path === selectedRoute)[0].subRoutes" :key="subRoute.name"
           class="mr-2 flex h-12 w-fit cursor-pointer items-center justify-center p-2 hover:bg-gray-100"
           >
-              <a class="text-xl font-semibold" :href="subRoute.path">{{subRoute.name}}</a>
+              <a class="text-lg " :href="subRoute.path">{{subRoute.name}}</a>
           </div>
 
           <div class="relative flex h-12 cursor-pointer items-center border-0 border-l-2 border-gray-200 px-2 group">
               <div class="flex items-center">
-
-                  <h1 class="text-xl font-semibold group-hover:underline">Sheak Sadi</h1>
+                  <img src="https://i.imgur.com/oYbdbO4.png" alt="Profile Picture" class="mx-2 h-12 w-12 rounded-full">
               </div>
               <div class="absolute top-10 right-0 hidden group-hover:block">
                   <div class="mt-6 flex w-full flex-col items-center justify-center gap-2 rounded-md bg-white p-2 shadow-lg">
@@ -205,8 +204,8 @@ let routes = [
     </div>
     <div class="flex w-full h-[94%]">
       <!--sidebar-->
-      <div class="h-full bg-gray-100 p-1 pt-4 pl-0 transition-all duration-300 border-r-2 border-gray-200"
-           :class="{'w-64': drawer || !drawerOpenClick, 'w-[3.3rem]': !(drawer || !drawerOpenClick) }"
+      <div class="h-full bg-gray-100 p-2 transition-all duration-300 border-r-2 border-gray-200 "
+           :class="{'w-64': drawer || !drawerOpenClick, 'w-[4rem]': !(drawer || !drawerOpenClick) }"
            @mouseenter="sidebarMouseEnter"
            @mouseleave="sidebarMouseLeave"
       >
@@ -214,12 +213,12 @@ let routes = [
             v-for="route in routes"
             key="route.name"
             class="flex items-center w-full h-12 bg-gray-100
-                     hover:bg-gray-200 p-1 overflow-hidden text-xl text-gray-600 mb-2 rounded  cursor-pointer"
+                     hover:bg-gray-200 p-1 overflow-hidden text-xl text-gray-600 mb-2 rounded cursor-pointer"
             :class="{'bg-gray-300': selectedRoute === route.path}"
             @click="navigateTo(route.path)"
         >
           <div>
-            <Icon size="2.5rem" class="block font-semibold" :name="route.icon"/>
+            <Icon size="2.5rem" class="block" :name="route.icon"/>
           </div>
 
           <h1 class="ml-12 text-lg">{{ route.name }}</h1>

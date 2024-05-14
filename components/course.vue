@@ -34,27 +34,27 @@ let props = defineProps({
 
 <template>
   <div
-      class="border group w-[12.5rem] h-[15rem] bg-white rounded-lg shadow-md overflow-hidden flex flex-col justify-between"
+      class="border group w-[26rem] h-[15rem] bg-white rounded-lg shadow-md overflow-hidden flex flex-col justify-between"
       :class="styles"
   >
       <div>
-          <div class=" h-[4.5rem] p-2 flex justify-between items-center "
-               :class="`bg-${color}-400 group-hover:bg-${color}-300`"
+          <div class=" h-[5rem] p-3 flex justify-between items-center "
+               :class="`bg-${color}-500 group-hover:bg-${color}-300 `"
           >
               <div class="flex flex-col gap-1">
-                  <h1 class="font-semibold text-sm truncate-text">{{ title }}</h1>
-                  <h1 class="font-semibold text-xs text-gray-700">{{ code }}</h1>
+                  <h1 class="text-white text-md truncate-text">{{ title }}</h1>
+                  <h1 class="font-semibold text-xs" :class="`text-${color}-900`">{{ code }}</h1>
               </div>
 
-              <div class="flex space-x-1">
+              <div class="flex space-x-1 text-${color}-900">
                   <Icon size="1.4rem" name="mdi:heart-outline" />
                   <Icon size="1.4rem" name="bi:three-dots-vertical" />
               </div>
 
           </div>
           <div class="p-2">
-              <h1 class="text-sm font-semibold">Credit: {{credit}}</h1>
-              <h1 class="text-sm font-semibold mt-2">Class Times</h1>
+              <h1 class="text-sm text-gray-500">Credit: {{credit}}</h1>
+              <h1 class="text-sm text-gray-500">Class Times</h1>
               <h1 v-for="classTime in classes" class="text-sm">{{classTime}}</h1>
           </div>
 
@@ -64,7 +64,7 @@ let props = defineProps({
     <div class="p-2">
       <div class="flex items-center justify-between">
         <div class="flex items-center  hover:outline-1 hover:outline-blue-500 cursor-pointer rounded hover:bg-gray-200 px-2">
-          <span class="text-sm font-semibold ">{{teacher}}</span>
+          <span class="text-sm font-semibold text-gray-500">{{teacher}}</span>
         </div>
         <div class="flex space-x-2">
           <Icon size="1.4rem" name="material-symbols:call" />

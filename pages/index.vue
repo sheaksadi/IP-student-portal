@@ -145,7 +145,15 @@ let courses = [
         "teacher": "Muntasir",
         "credit": 2,
         "classTimes": ["Tue 11:00 AM - 12:30 PM", "Thu 11:00 AM - 12:30 PM"]
-    }
+    },
+  {
+    "name": "Bangladesh Studies",
+    "code": "SSC 1101",
+    "color": "lime",
+    "teacher": "Muntasir",
+    "credit": 2,
+    "classTimes": ["Tue 11:00 AM - 12:30 PM", "Thu 11:00 AM - 12:30 PM"]
+  }
 ];
 
 let upcomingEvents = [
@@ -191,10 +199,93 @@ const getCardColor = (grade: any) => {
 </script>
 
 <template>
-  <div class="flex h-full w-full bg-blue-100">
-    <div class="flex h-full w-full flex-col ">
+  <div class="flex w-full bg-blue-100 h-full">
+    <div class="flex w-full flex-col ">
+      <div class="flex pt-4 pl-4 pr-1">
+        <div class="w-full p-2 ">
+          <div class="w-full rounded-2xl bg-white shadow p-4 space-y-2 overflow-hidden h-60">
+            <h1 class="text-2xl font-semibold text-gray-700">Timeline</h1>
+            <div class="flex w-full">
+              <!--                    <div class="w-full flex justify-center"><img class="h-full" src="~/assets/academic-calendar.png" alt="calendar"></div>-->
+              <ImageModal
+                  imageLink="https://cdn.discordapp.com/attachments/1087010612892151899/1239342159161983098/academic-calendar.png?ex=66448d14&is=66433b94&hm=9ae77a9440a2f8104b9af3d15162aea7b581db9e59d46bbc7dcb716a76d8ea54&"></ImageModal>
+              <div class=" w-full ">
+                <h1 class="text-xl">Upcoming:</h1>
+                <div class="ml-4 mt-2 gap-2 flex flex-col overflow-y-auto h-32 " style="scrollbar-width: thin;">
+                  <div v-for="event in upcomingEvents" :key="event.Date" class="text-sm bg-blue-300 rounded p-1">
+                    <h1 class="text-blue-900">{{ event.Date }}</h1>
+                    <h1 class="text-white">{{ event.Title }}</h1>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+        <div class="w-full p-2 ">
+          <div class="w-full rounded-2xl bg-white overflow-hidden shadow p-4 space-y-8 h-60 ">
+            <div class="flex items-center justify-between">
+              <h1 class="text-2xl font-semibold text-gray-700">Semester Results</h1>
+              <div class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-semibold">
+                Spring 2024
+              </div>
+            </div>
+            <div class="grid grid-cols-3 gap-4">
+              <div v-for="(course, index) in results" :key="index" :class="getCardColor(course.grade)" class="rounded-lg p-4 flex flex-col justify-between">
+                <div><h2 class="text-lg font-semibold mb-2">{{ course.code }}</h2>
+                  <p class="text-sm">{{ course.title }}</p></div>
+                <div>
+                  <p class="text-lg font-bold">{{ course.grade }}</p>
+                </div>
+
+
+              </div>
+            </div>
+
+          </div>
+        </div>
+        <div class="w-full  p-2">
+          <div class="w-full rounded-2xl bg-white overflow-hidden shadow p-4 space-y-2 h-60">
+            <h1 class="text-2xl font-semibold text-gray-700">Quick Menu</h1>
+            <div class="flex gap-2">
+              <div class="w-44 h-40 bg-gray-300 rounded-2xl flex flex-col justify-between p-4">
+                <div>
+                  <h1 class="text-xl font-semibold text-gray-800 mb-2">Enrollment</h1>
+                  <p class="text-sm text-gray-600">You can only enroll at start of each semester.</p>
+                </div>
+                <div>
+                  <button class="bg-gray-500  text-white px-4 py-2 rounded-md">Enroll</button>
+                </div>
+              </div>
+              <div class="w-44 h-40 bg-blue-300 rounded-2xl flex flex-col justify-between p-4">
+                <div>
+                  <h1 class="text-xl font-semibold text-blue-900 mb-2">Payment Form</h1>
+                  <p class="text-sm text-blue-900">Get the payment form for this semester.</p>
+                </div>
+                <div>
+                  <button class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md">Pay Now</button>
+                </div>
+              </div>
+              <div class="w-44 h-40 bg-blue-300 rounded-2xl flex flex-col justify-between p-4">
+                <div>
+                  <h1 class="text-xl font-semibold text-blue-900 mb-2">Transcript</h1>
+                  <p class="text-sm text-blue-900">Get an over view of your academic records.</p>
+                </div>
+                <div>
+                  <button class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md w-20">Get</button>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+
+      </div>
       <!--            Courses-->
-      <div class="h-2/3 p-2 flex flex-col gap-6 ">
+      <div class="h-2/3 flex flex-col gap-3 p-4 pl-6">
         <h1 class="text-4xl font-semibold text-gray-700">Courses</h1>
         <div class="flex flex-wrap gap-2 overflow-y-auto " style="scrollbar-width: thin;">
           <course v-for="course in courses" :key="course.code" :title="course.name" :code="course.code"
@@ -204,108 +295,17 @@ const getCardColor = (grade: any) => {
         </div>
 
       </div>
-      <div class="flex h-1/3">
-        <div class="h-full w-full p-2 ">
-          <div class="h-full w-full rounded-2xl bg-gray-100 overflow-hidden shadow p-4 space-y-2">
-            <h1 class="text-2xl font-semibold text-gray-700">Timeline</h1>
-            <div class="flex w-full h-full">
-              <!--                    <div class="w-full flex justify-center"><img class="h-full" src="~/assets/academic-calendar.png" alt="calendar"></div>-->
-              <ImageModal
-                  imageLink="https://cdn.discordapp.com/attachments/1087010612892151899/1239342159161983098/academic-calendar.png?ex=66448d14&is=66433b94&hm=9ae77a9440a2f8104b9af3d15162aea7b581db9e59d46bbc7dcb716a76d8ea54&"></ImageModal>
-              <div class=" w-full ">
-                <h1 class="text-xl">Upcoming:</h1>
-                <div class="ml-4 mt-2 gap-2 flex flex-col h-full overflow-y-auto" style="scrollbar-width: thin;">
-                  <div v-for="event in upcomingEvents" :key="event.Date" class="text-sm bg-blue-300 rounded p-1">
-                    <h1 class="">{{ event.Date }}</h1>
-                    <h1 class="">{{ event.Title }}</h1>
 
-                  </div>
-                </div>
-              </div>
-            </div>
-
-          </div>
-
-        </div>
-          <div class="h-full w-full p-2">
-              <div class="h-full w-full rounded-2xl bg-gray-100 overflow-hidden shadow-lg p-4 space-y-8">
-                  <div class="flex items-center justify-between">
-                      <h1 class="text-2xl font-semibold text-gray-700">Semester Results</h1>
-                      <div class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-semibold">
-                          Spring 2024
-                      </div>
-                  </div>
-                  <div class="grid grid-cols-3 gap-4">
-                      <div v-for="(course, index) in results" :key="index" :class="getCardColor(course.grade)" class="rounded-lg p-4 flex flex-col justify-between">
-                          <div><h2 class="text-lg font-semibold mb-2">{{ course.code }}</h2>
-                              <p class="text-sm">{{ course.title }}</p></div>
-                          <div>
-                              <p class="text-lg font-bold">{{ course.grade }}</p>
-                          </div>
-
-
-                      </div>
-                  </div>
-                  <div class="flex justify-end">
-                      <a
-                              href="#"
-                              class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md"
-                      >View All</a
-                      >
-                  </div>
-              </div>
-          </div>
-        <div class="h-full w-full  p-2">
-            <div class="h-full w-full rounded-2xl bg-gray-100 overflow-hidden shadow p-4 space-y-2">
-                <h1 class="text-2xl font-semibold text-gray-700">Quick Menu</h1>
-                <div class="flex gap-2">
-                    <div class="w-44 h-48 bg-gray-300 rounded-2xl flex flex-col justify-between p-4">
-                        <div>
-                            <h1 class="text-xl font-semibold text-gray-800 mb-2">Enrollment</h1>
-                            <p class="text-sm text-gray-600">You can only enroll at start of each semester.</p>
-                        </div>
-                        <div>
-                            <button class="bg-gray-500  text-white px-4 py-2 rounded-md">Enroll</button>
-                        </div>
-                    </div>
-                    <div class="w-44 h-48 bg-blue-300 rounded-2xl flex flex-col justify-between p-4">
-                        <div>
-                            <h1 class="text-xl font-semibold text-gray-800 mb-2">Payment Form</h1>
-                            <p class="text-sm text-gray-600">Get the payment form for this semester.</p>
-                        </div>
-                        <div>
-                            <button class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md">Pay Now</button>
-                        </div>
-                    </div>
-                    <div class="w-44 h-48 bg-blue-300 rounded-2xl flex flex-col justify-between p-4">
-                        <div>
-                            <h1 class="text-xl font-semibold text-gray-800 mb-2">Transcript</h1>
-                            <p class="text-sm text-gray-600">Get an over view of your academic records.</p>
-                        </div>
-                        <div>
-                            <button class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md w-20">Get</button>
-                        </div>
-                    </div>
-
-                </div>
-                <div class="flex justify-end pr-1">
-                    <button class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md">View All</button>
-
-                </div>
-            </div>
-        </div>
-
-      </div>
 
     </div>
     <!--        Feed-->
-    <div class="h-full border-l-2 border-gray-500 p-2 w-[30rem]">
+    <div class="max-h-fit overflow-hidden border-l-2 ml-2 border-blue-200 p-2 w-[30rem]">
       <div class="flex h-12 items-center justify-between">
-        <h1 class="text-2xl font-semibold text-gray-700">Your Feed</h1>
+        <h1 class="text-2xl font-semibold text-gray-700 pl-2">Your Feed</h1>
         <div class="flex rounded-2xl text-xs font-semibold text-gray-500 p-0.5 overflow-hidden">
-          <h1 class="bg-rose-400 px-2">Events</h1>
-          <h1 class="bg-sky-400 px-2">Notices</h1>
-          <h1 class="bg-green-400 px-2">Academics</h1>
+          <h1 class="bg-rose-500 text-rose-900 px-3 py-1">Events</h1>
+          <h1 class="bg-sky-500 text-sky-900 px-3 py-1">Notices</h1>
+          <h1 class="bg-green-500 text-green-900 px-3 py-1">Academics</h1>
         </div>
       </div>
 
@@ -313,17 +313,17 @@ const getCardColor = (grade: any) => {
         <div v-for="event in feed" :key="event.title" class="my-2 w-full rounded bg-slate-100 p-2">
           <div>
             <div class="flex items-center justify-between">
-              <div class="flex w-28 items-center justify-center rounded capitalize text-gray-800 p-.5"
-                   :class="{'bg-rose-300': event.type === 'event', 'bg-sky-300': event.type === 'notice', 'bg-green-300': event.type === 'academic'}">
-                <h1>{{ event.type }}</h1>
+              <div class="flex px-2 items-center justify-center rounded capitalize text-gray-800 p-.5"
+                   :class="{'bg-rose-400': event.type === 'event', 'bg-sky-400': event.type === 'notice', 'bg-green-400': event.type === 'academic'}">
+                <h1 :class="{'text-rose-900': event.type === 'event', 'text-sky-900': event.type === 'notice', 'text-green-900': event.type === 'academic'}">{{ event.type }}</h1>
               </div>
-              <h1 class="text-right">{{ event.date }}</h1>
+              <h1 class="text-right text-xs text-gray-500">{{ event.date }}</h1>
             </div>
 
 
-            <h1 class="mb-3 text-xl font-semibold">{{ event.title }}</h1>
+            <h1 class="mb-3 text-lg" >{{ event.title }}</h1>
           </div>
-          <p>{{ event.content }}</p>
+          <p class="mb-3 text-sm">{{ event.content }}</p>
         </div>
       </div>
 
