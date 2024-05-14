@@ -39,7 +39,7 @@ let props = defineProps({
   >
       <div>
           <div class=" h-[5rem] p-3 flex justify-between items-center "
-               :class="`bg-${color}-500 group-hover:bg-${color}-300 `"
+               :class="`bg-${color}-500 group-hover:bg-${color}-400 `"
           >
               <div class="flex flex-col gap-1">
                   <h1 class="text-white text-md truncate-text">{{ title }}</h1>
