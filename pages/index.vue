@@ -287,8 +287,8 @@ const getCardColor = (grade: any) => {
       <!--            Courses-->
       <div class="h-2/3 flex flex-col gap-3 p-4 pl-6">
         <h1 class="text-4xl font-semibold text-gray-700">Courses</h1>
-        <div class="flex flex-wrap gap-2 overflow-y-auto " style="scrollbar-width: thin;">
-          <course v-for="course in courses" :key="course.code" :title="course.name" :code="course.code"
+        <div class="grid grid-cols-6 gap-2 overflow-y-auto " style="scrollbar-width: thin;">
+          <course v-for="course in courses" class="" :key="course.code" :title="course.name" :code="course.code"
                   :color="course.color" :teacher="course.teacher"
                   :classes="course.classTimes" :credit="course.credit"
           ></course>

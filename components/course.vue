@@ -34,7 +34,7 @@ let props = defineProps({
 
 <template>
   <div
-      class="border group w-[26rem] h-[15rem] bg-white rounded-lg shadow-md overflow-hidden flex flex-col justify-between"
+      class="border group h-[15rem] bg-white rounded-lg shadow-md overflow-hidden flex flex-col justify-between"
       :class="styles"
   >
       <div>
