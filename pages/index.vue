@@ -180,9 +180,9 @@ let upcomingEvents = [
 ];
 
 const results = [
-    { code: 'CSE 1115', title: 'Object Oriented Programming', grade: 'A+' },
-    { code: 'EEE 2201', title: 'Digital Electronics', grade: 'B' },
-    { code: 'MAT 1205', title: 'Coordinate Geometry', grade: 'C-' }
+    { code: 'CSE 111', title: 'Object Oriented Programming', grade: 'A+' },
+    { code: 'EEE 220', title: 'Digital Electronics', grade: 'B' },
+    { code: 'MAT 120', title: 'Coordinate Geometry', grade: 'C-' }
 ];
 const getCardColor = (grade: any) => {
     switch (grade) {
@@ -235,7 +235,7 @@ const getCardColor = (grade: any) => {
             <div class="grid grid-cols-3 gap-4">
               <div v-for="(course, index) in results" :key="index" :class="getCardColor(course.grade)" class="rounded-lg p-4 flex flex-col justify-between">
                 <div><h2 class="text-lg font-semibold mb-2">{{ course.code }}</h2>
-                  <p class="text-sm">{{ course.title }}</p></div>
+                  <p class="text-sm truncate-text">{{ course.title }}</p></div>
                 <div>
                   <p class="text-lg font-bold">{{ course.grade }}</p>
                 </div>
@@ -250,7 +250,7 @@ const getCardColor = (grade: any) => {
           <div class="w-full rounded-2xl bg-white overflow-hidden shadow p-4 space-y-2 h-60">
             <h1 class="text-2xl font-semibold text-gray-700">Quick Menu</h1>
             <div class="flex gap-2">
-              <div class="w-44 h-40 bg-gray-300 rounded-2xl flex flex-col justify-between p-4">
+              <div class="w-44 h-44 bg-gray-300 rounded-2xl flex flex-col justify-between p-4">
                 <div>
                   <h1 class="text-xl font-semibold text-gray-800 mb-2">Enrollment</h1>
                   <p class="text-sm text-gray-600">You can only enroll at start of each semester.</p>
@@ -259,7 +259,7 @@ const getCardColor = (grade: any) => {
                   <button class="bg-gray-500  text-white px-4 py-2 rounded-md">Enroll</button>
                 </div>
               </div>
-              <div class="w-44 h-40 bg-blue-300 rounded-2xl flex flex-col justify-between p-4">
+              <div class="w-44 h-44 bg-blue-300 rounded-2xl flex flex-col justify-between p-4">
                 <div>
                   <h1 class="text-xl font-semibold text-blue-900 mb-2">Payment Form</h1>
                   <p class="text-sm text-blue-900">Get the payment form for this semester.</p>
@@ -268,7 +268,7 @@ const getCardColor = (grade: any) => {
                   <button class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md">Pay Now</button>
                 </div>
               </div>
-              <div class="w-44 h-40 bg-blue-300 rounded-2xl flex flex-col justify-between p-4">
+              <div class="w-44 h-44 bg-blue-300 rounded-2xl flex flex-col justify-between p-4">
                 <div>
                   <h1 class="text-xl font-semibold text-blue-900 mb-2">Transcript</h1>
                   <p class="text-sm text-blue-900">Get an over view of your academic records.</p>
@@ -287,7 +287,7 @@ const getCardColor = (grade: any) => {
       <!--            Courses-->
       <div class="h-2/3 flex flex-col gap-3 p-4 pl-6">
         <h1 class="text-4xl font-semibold text-gray-700">Courses</h1>
-        <div class="grid grid-cols-6 gap-2 overflow-y-auto " style="scrollbar-width: thin;">
+        <div class="grid grid-cols-5 gap-2 " style="scrollbar-width: thin;">
           <course v-for="course in courses" class="" :key="course.code" :title="course.name" :code="course.code"
                   :color="course.color" :teacher="course.teacher"
                   :classes="course.classTimes" :credit="course.credit"
@@ -342,5 +342,10 @@ const getCardColor = (grade: any) => {
 </template>
 
 <style scoped>
-
+.truncate-text {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
 </style>
