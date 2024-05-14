@@ -205,7 +205,7 @@ const getCardColor = (grade: any) => {
     <div class="flex w-full flex-col ">
       <div class="flex pt-4 pl-4 pr-1">
         <div class="w-full p-2 ">
-          <div class="w-full rounded-2xl bg-white shadow p-4 space-y-2 overflow-hidden h-60">
+          <div class="w-full rounded-2xl bg-white shadow p-4 space-y-2 overflow-hidden h-64">
             <h1 class="text-2xl font-semibold text-gray-700">Timeline</h1>
             <div class="flex">
               <!--                    <div class="w-full flex justify-center"><img class="h-full" src="~/assets/academic-calendar.png" alt="calendar"></div>-->
@@ -227,7 +227,7 @@ const getCardColor = (grade: any) => {
 
         </div>
         <div class="w-full p-2 ">
-          <div class="w-full rounded-2xl bg-white overflow-hidden shadow p-4 space-y-8 h-60 ">
+          <div class="w-full rounded-2xl bg-white overflow-hidden shadow p-4 space-y-8 h-64 ">
             <div class="flex items-center justify-between">
               <h1 class="text-2xl font-semibold text-gray-700">Semester Results</h1>
               <div class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-semibold">
@@ -249,7 +249,7 @@ const getCardColor = (grade: any) => {
           </div>
         </div>
         <div class="w-full  p-2">
-          <div class="w-full rounded-2xl bg-white overflow-hidden shadow p-4 space-y-2 h-60">
+          <div class="w-full rounded-2xl bg-white overflow-hidden shadow p-4 space-y-2 h-64">
             <h1 class="text-2xl font-semibold text-gray-700">Quick Menu</h1>
             <div class="flex gap-2">
               <div class="w-44 h-44 bg-gray-300 rounded-2xl flex flex-col justify-between p-4">

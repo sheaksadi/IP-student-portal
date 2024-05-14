@@ -14,8 +14,8 @@
       <div class="text-center text-sm">Fri</div>
       <div class="text-center text-sm">Sat</div>
 
-      <div v-for="blank in firstDay" :key="blank" class="py-2"></div>
-      <div v-for="date in daysInMonth" :key="date" class="text-sm cursor-pointer" @click="toggleDate(date)" :class="{
+      <div v-for="blank in firstDay" :key="blank" class="py-1"></div>
+      <div v-for="date in daysInMonth" :key="date" class="text-xs cursor-pointer" @click="toggleDate(date)" :class="{
         'bg-blue-200': isMarked(date),
         'bg-white': !isMarked(date)
       }">
