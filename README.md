@@ -1,5 +1,5 @@
 # IP Student Portal
-This is an open-source student portal built as a project for the course Internet Programming at Ahsanullah University (AUB). The portal is designed to be a web-based application that provides a platform for students to manage their academic activities, such as viewing their course schedule, checking their grades, and communicating with their teachers.
+This is an open-source student portal built as a project for the course Internet Programming. The portal is designed to be a web-based application that provides a platform for students to manage their academic activities, such as viewing their course schedule, checking their grades, and communicating with their teachers.
 
 ## Features
 
