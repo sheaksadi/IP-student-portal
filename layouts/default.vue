@@ -194,7 +194,7 @@ const openTodo = () => {
       </div>
       <div class="mr-2 flex">
 
-          <div class="mr-2 flex h-12 w-fit cursor-pointer items-center justify-center p-2 hover:bg-gray-100 rounded "
+          <div class="mr-2 flex h-12 w-fit cursor-pointer items-center justify-center p-2 hover:bg-gray-100 rounded select-none"
                @click="openTodo"
           >
               <h1 class=" text-xl"><Icon name="mdi:pencil" size="1.5rem" /> Todo</h1>

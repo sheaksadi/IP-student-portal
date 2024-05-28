@@ -1,6 +1,6 @@
 <template>
     <div
-            class="border group h-[15rem] bg-white rounded-lg shadow-md overflow-hidden flex flex-col justify-between"
+            class="border group h-[15rem] bg-white rounded-lg shadow-md overflow-hidden flex flex-col justify-between cursor-pointer"
             :class="styles"
             @click="showingCourseModal = !showingCourseModal"
     >

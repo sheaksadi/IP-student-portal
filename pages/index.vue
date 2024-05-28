@@ -265,11 +265,11 @@ const closeAlertModal = () => {
                             <div class="relative">
                                 <select
                                         @change="showResultModal($event.target.value)"
-                                        class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-semibold appearance-none"
+                                        class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-semibold appearance-none cursor-pointer"
                                 >
                                     <option value="" disabled selected>Select Semester</option>
-                                    <option value="fall2023">Fall 2023</option>
-                                    <option value="spring2024">Spring 2024</option>
+                                    <option class="cursor-pointer" value="fall2023">Fall 2023</option>
+                                    <option class="cursor-pointer" value="spring2024">Spring 2024</option>
                                 </select>
                                 <div
                                         class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700"
