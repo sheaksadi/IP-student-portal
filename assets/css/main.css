@@ -7,4 +7,5 @@
 html {
     @apply bg-blue-100;
     font-family: "Rubik", sans-serif;
+    overflow: hidden;
 }

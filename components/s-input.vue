@@ -12,7 +12,7 @@ defineProps({
     }
 })
 const isFocused = ref(false)
-const showPass = ref(false)
+const showPass = ref(true)
 const value = defineModel()
 
 const handleBlur = () => {
@@ -35,6 +35,9 @@ const handleBlur = () => {
         v-model="value"
         @focus="isFocused = true"
         @blur="handleBlur"
+
+        @focusout="$emit('focusout')"
+
         >
       <div class="pointer-events-none absolute left-3 text-gray-500 transition-all ease-in-out duration-[130ms]"
            :class="{

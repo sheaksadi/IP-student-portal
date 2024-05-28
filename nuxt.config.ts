@@ -10,7 +10,7 @@ export default defineNuxtConfig({
             autoprefixer: {},
         },
     },
-    modules: ['nuxt-icon'],
+    modules: ['nuxt-icon', '@pinia/nuxt', '@pinia-plugin-persistedstate/nuxt',],
     ssr: true,
 
 })

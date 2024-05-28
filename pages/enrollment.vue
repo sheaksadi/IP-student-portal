@@ -16,7 +16,9 @@
 
 <!--      sidebar -->
       <div class="h-full w-[40rem] bg-green-400 flex flex-col">
-
+          <div class="h-[40rem] w-[60rem] bg-rose-400 text-4xl text-white font-bold absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+              NOT IMPLEMENTED
+          </div>
       </div>
   </div>
 </template>

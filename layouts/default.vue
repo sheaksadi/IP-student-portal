@@ -2,7 +2,8 @@
 const drawer = ref(false)
 const drawerOpenClick = ref(true)
 let pucLogo = 'https://puc.ac.bd/Content/new-template-assets/images/puc_logo.png'
-
+import {useStore} from "~/stores/store";
+let store = useStore()
 const sidebarMouseEnter = () => {
   drawer.value = true
 }
@@ -152,13 +153,35 @@ let routes = [
   },
 
 ]
+const winMount = ref(null);
+onMounted(async () => {
+    store.Window = window;
+    store.screen = screen.value;
+    store.winMount = winMount.value;
 
+    setInterval(() => {
+        for (let element of window.document.getElementsByClassName("header")) {
+            if (!store.moveAbleElements.includes(element)) {
+                store.mouseMoveHandler(element);
+                store.moveAbleElements.push(element);
+            }
+        }
+    }, 500);
+});
+const openTodo = () => {
+    if (store.appUuid) {
+      store.closeApp()
+    }else {
+        store.openApp()
+    }
+
+}
 </script>
 
 <template>
-  <div class="h-screen w-full">
+  <div class="h-screen w-full overflow-hidden" >
     <!--navbar-->
-    <div class="flex w-full items-center justify-between bg-white h-[6%]">
+    <div class="flex w-full items-center justify-between bg-white h-[6%]" >
       <div class="flex">
         <div class="ml-2 flex h-12 w-12 cursor-pointer items-center justify-center rounded hover:bg-gray-100">
           <Icon class="" size="2rem" name="mdi:menu" @click="drawerOpenClick = !drawerOpenClick"/>
@@ -171,10 +194,12 @@ let routes = [
       </div>
       <div class="mr-2 flex">
 
-          <div v-for="subRoute in routes.filter((route) => route.path === selectedRoute)[0].subRoutes" :key="subRoute.name"
-          class="mr-2 flex h-12 w-fit cursor-pointer items-center justify-center p-2 hover:bg-gray-100"
+          <div class="mr-2 flex h-12 w-fit cursor-pointer items-center justify-center p-2 hover:bg-gray-100 rounded "
+               @click="openTodo"
           >
-              <a class="text-lg " :href="subRoute.path">{{subRoute.name}}</a>
+              <h1 class=" text-xl"><Icon name="mdi:pencil" size="1.5rem" /> Todo</h1>
+
+<!--              <div class="h-[50rem] w-[30rem] absolute top-20 right-6 bg-gray-500"></div>-->
           </div>
 
           <div class="relative flex h-12 cursor-pointer items-center border-0 border-l-2 border-gray-200 px-2 group">
@@ -227,7 +252,7 @@ let routes = [
       </div>
 
       <!--main-->
-      <div class="h-full w-full">
+      <div class="h-full w-full" ref="winMount">
         <slot/>
       </div>
     </div>
